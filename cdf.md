@@ -244,8 +244,11 @@ Will attempt to provide a JSON response compatible with 4xx responses but may no
 Requests should be retried on the assumption it was a temporary availability issue.
 Consistent 5xx responses for an individual listing would need to be manually reviewed.
 
-## GET /api/v1/sellers/{seller-code}/listings/{product_code}
+## GET /api/v1/sellers/{seller-code}/listings/{product_code}/{condition}/{location}
 Retrieves the current listing for `{product_code}`.
+
+The `{condition}` and `{location}` path parameters are optional and can be omitted. If not provided the system defaults
+to `used` and the default location for the seller.
 
 ```json
 {
@@ -257,9 +260,12 @@ Retrieves the current listing for `{product_code}`.
 }
 ```
 
-## DELETE /api/v1/sellers/seller-code}/listings/{product_code}
+## DELETE /api/v1/sellers/seller-code}/listings/{product_code}/{condition}/{location}
 Removes the listing for `{product_code}`. Existing unconfirmed orders will still be assumed to be fulfilled
 and must be either confirmed or canceled via the normal process using the `orders` endpoint.
+
+The `{condition}` and `{location}` path parameters are optional and can be omitted. If not provided the system defaults
+to `used` and the default location for the seller.
 
 ## POST /api/v1/sellers/{seller-code}/listings
 Create or fully update one or more listings. Max 100 listings in any request. All listing changes or additions
