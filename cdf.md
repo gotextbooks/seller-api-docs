@@ -173,7 +173,7 @@ catalog or the request will be rejected.
 | condition    | string  | Condition of the product - NEW or USED  | Mandatory |
 | quantity     | Integer | Current quantity available for purchase | Mandatory |
 | price        | Money   | Current price                           | Mandatory |
-| location_id  | Integer | Location Identifier, future use only    | Optional  |
+| location_id  | Integer | Location Identifier                     | Mandatory |
 
 
 ```json
@@ -351,7 +351,7 @@ Feeds are formatted in JSONL.
 | condition    | string  | Condition of the product - NEW or USED  | Mandatory |
 | quantity     | Integer | Current quantity available for purchase | Mandatory |
 | price        | Money   | Current price                           | Mandatory |
-| location_id  | Integer | Location Identifier, future use only    | Optional  |
+| location_id  | Integer | Location Identifier                     | Mandatory |
 
 ```json lines
 { "product_code": "978XXXXXXXXXXXX","condition": "USED", "location_id": 1, "quantity": 10, "price": 42.49 }
