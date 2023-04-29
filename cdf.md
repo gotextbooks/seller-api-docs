@@ -412,7 +412,7 @@ Returns orders allocated to seller.
 | Name     | Type    |                                                                            | Required  |
 |----------|---------|----------------------------------------------------------------------------|-----------|
 | status   | string  | Filter orders by status. "new", "acknowledged", "shipped", "cancelled".    | Optional  |
-| order    | string  | Sort order by creation timestamp. "asc" or "desc". Default value is 'desc' | Optional  |
+| sort     | string  | Sort order by creation timestamp. "asc" or "desc". Default value is 'desc' | Optional  |
 | page     | integer | Page to retrieve. Default value is 1                                       | Optional  |
 | per_page | integer | Number of results to return. Default 100, Maximum 1000.                    | Optional  |
 
@@ -686,7 +686,7 @@ Returns invoices submitted by seller.
 | Name     | Type    |                                                                                          | Required  |
 |----------|---------|------------------------------------------------------------------------------------------|-----------|
 | status   | string  | Filter invoices by status. "new", "review", "reconciled", "approved", "paid", "declined" | Optional  |
-| order    | string  | Sort order by creation timestamp. "asc" or "desc". Default value is 'desc'               | Optional  |
+| sort     | string  | Sort order by creation timestamp. "asc" or "desc". Default value is 'desc'               | Optional  |
 | page     | integer | Page to retrieve. Default value is 1                                                     | Optional  |
 | per_page | integer | Number of results to return. Default 100, Maximum 1000.                                  | Optional  |
 
@@ -719,7 +719,7 @@ Returns invoices submitted by seller.
 | Name     | Type    |                                                                            | Required  |
 |----------|---------|----------------------------------------------------------------------------|-----------|
 | status   | string  | Filter payments by status. "pending", "approved", "cancelled", "paid"      | Optional  |
-| order    | string  | Sort order by creation timestamp. "asc" or "desc". Default value is 'desc' | Optional  |
+| sort     | string  | Sort order by creation timestamp. "asc" or "desc". Default value is 'desc' | Optional  |
 | page     | integer | Page to retrieve. Default value is 1                                       | Optional  |
 | per_page | integer | Number of results to return. Default 10, Maximum 100.                      | Optional  |
 
