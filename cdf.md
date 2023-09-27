@@ -45,18 +45,20 @@ unconfirmed order quantities.
 ### Orders
 Orders are a request to purchase one or more items and ship them to an end customer.
 
-| Status       | Description                                                                                  |
-|--------------|----------------------------------------------------------------------------------------------|
-| NEW          | Orders begin in NEW status. NEW orders are assumed to have not yet been observed by seller.  |
-| ACKNOWLEDGED | Acknowledged orders are confirmed for fulfillment at the price indicated in the order.       |
-| SHIPPED      | Order has been sent to the end customer.                                                     |
-| CANCELLED    | Order has been cancelled by seller or by GoTextbooks                                         |
+| Status       | Description                                                                                                               |
+|--------------|---------------------------------------------------------------------------------------------------------------------------|
+| NEW          | Orders begin in `new` status. `new` orders are assumed to have not yet been observed by seller.                           |
+| ACCEPTED     | Orders are successfully imported into the seller's fulfillment system and is in progress. Use of this status is optional. |
+| ACKNOWLEDGED | Orders are confirmed for fulfillment at the price indicated in the order.                                                 |
+| SHIPPED      | Order has been sent to the end customer.                                                                                  |
+| CANCELLED    | Order has been cancelled by seller or by GoTextbooks                                                                      |
 
 Order and Item LifeCycle
 
 The order status reflects the status of the item with the least amount of progression through the lifecycle. 
 
 * NEW - at least one item is in NEW status
+* ACCEPTED - no items in NEW status and at least one item in ACCEPTED status
 * ACKNOWLEDGED - no items in NEW status and at least one item in ACKNOWLEDGED status
 * SHIPPED - no items in NEW or ACKNOWLEDGED status and at least one item in SHIPPED status
 * CANCELLED - all items in CANCELLED status
@@ -64,8 +66,11 @@ The order status reflects the status of the item with the least amount of progre
 
 ```mermaid
 flowchart LR
+    NEW --> ACCEPTED
     NEW --> ACKNOWLEDGED
     NEW --> CANCELLED
+    ACCEPTED --> ACKNOWLEDGED
+    ACCEPTED --> CANCELLED
     ACKNOWLEDGED --> SHIPPED
     ACKNOWLEDGED --> CANCELLED
 ```
